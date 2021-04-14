@@ -12,6 +12,6 @@ ray.init()
 
 @ray.remote
 def func(i):
-	os.system('gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile='+os.path.splitext(i)[0]+'_opt.pdf '+i)
+	os.system('gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="'+os.path.splitext(i)[0]+'_opt.pdf" "'+i+'"')
 
 ray.get([func.remote(i) for i in files])

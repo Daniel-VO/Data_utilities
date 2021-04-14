@@ -12,6 +12,6 @@ ray.init()
 
 @ray.remote
 def func(i):
-	os.system('pdfcrop --hires '+i+' '+i)
+	os.system('pdfcrop --hires "'+i+'" "'+i+'"')
 
 ray.get([func.remote(i) for i in files])
