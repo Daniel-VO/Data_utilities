@@ -28,7 +28,6 @@ def func(i):
 		i=i.replace('.bmp','.png')
 	size=str(subprocess.check_output('identify -format "%wx%h" '+i,shell=True)).split('x')
 	width,height=int(numbers.findall(size[0])[0]),int(numbers.findall(size[1])[0])
-	print(i,width,height)
 	if width>2048 and width>=height:
 		os.system('convert '+i+' -resize 2048x'+str(height*width/2048)+'\> -auto-level '+i)
 	if height>2048 and height>=width:
