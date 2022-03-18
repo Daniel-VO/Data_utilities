@@ -1,3 +1,3 @@
 for i in *.pdf; do
-pdfcrop --hires $i $i
+pdfcrop --hires $i $i &
 done
